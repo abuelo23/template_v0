@@ -9,7 +9,7 @@
 <nav class="pc-sidebar">
     <div class="navbar-wrapper">
         <div class="m-header">
-            <a href="../dashboard/index.html" class="b-brand text-center">
+            <a href="{{route('dashboard')}}" class="b-brand text-center">
                 <!-- ========   Change your logo from here   ============ -->
                 <img src="{{asset('img/header/diapo.svg')}}" alt="logo image" class="logo-lg ms-4" width="auto"
                     height="35" />
@@ -18,7 +18,7 @@
         <div class="navbar-content">
             <ul class="pc-navbar">
                 <li class="pc-item">
-                    <a href="../dashboard/index.html" class="pc-link">
+                    <a href="{{route('dashboard')}}" class="pc-link">
                         <span class="pc-micon">
                             <i class="material-icons-two-tone">home</i>
                         </span>
@@ -76,7 +76,7 @@
                     </ul>
                 </li>
                 <li class="pc-item">
-                    <a href="../pages/register-v1.html" class="pc-link" target="_blank">
+                    <a href="{{ route('register') }}" class="pc-link">
                         <span class="pc-micon"><i class="material-icons-two-tone">person_add_alt_1</i></span>
                         <span class="pc-mtext">Register</span>
                     </a>
