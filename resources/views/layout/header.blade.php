@@ -39,7 +39,8 @@
                                 <ul class="list-group list-group-flush w-100">
                                     <li class="list-group-item">
                                         <form method="POST" action="{{ route('logout') }}">
-                                            <a href="{{ Auth::user()->name }}" class="dropdown-item">
+                                            @csrf
+                                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" class="dropdown-item">
                                                 <span class="d-flex align-items-center">
                                                     <i class="ph-duotone ph-calendar-blank"></i>
                                                     <span>Logout</span>
