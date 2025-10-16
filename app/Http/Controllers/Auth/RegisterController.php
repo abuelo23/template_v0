@@ -21,6 +21,14 @@ class RegisterController extends Controller
 
         $user = $this->create($request->all());
 
+        if ($request->has('permissions')) {
+            $user->givePermissionTo($request->permissions);
+        }
+
+        if ($request->has('is_admin')) {
+            $user->assignRole('super-admin');
+        }
+
         auth()->login($user);
 
         return redirect()->route('dashboard');
@@ -41,6 +49,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'is_admin' => isset($data['is_admin']),
         ]);
     }
 }
