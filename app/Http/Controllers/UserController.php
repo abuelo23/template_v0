@@ -55,20 +55,11 @@ class UserController extends Controller
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password ? Hash::make($request->password) : $user->password,
+            'password' => $request->filled('password') ? Hash::make($request->password) : $user->password,
         ]);
 
-        if ($request->has('roles')) {
-            $user->syncRoles($request->roles);
-        } else {
-            $user->syncRoles([]);
-        }
-
-        if ($request->has('permissions')) {
-            $user->syncPermissions($request->permissions);
-        } else {
-            $user->syncPermissions([]);
-        }
+        $user->syncRoles($request->input('roles', []));
+        $user->syncPermissions($request->input('permissions', []));
 
         return redirect()->route('users.index')->with('success', 'User updated successfully.');
     }

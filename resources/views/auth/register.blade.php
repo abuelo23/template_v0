@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layout.index')
 
 @section('content')
     <div class="auth-main v1">
