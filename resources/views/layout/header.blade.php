@@ -1,7 +1,6 @@
 <!-- [ Header Topbar ] start -->
 <header class="pc-header">
-    <div class="header-wrapper">
-        <!-- [Mobile Media Block] start -->
+    <div class="header-wrapper"><!-- [Mobile Media Block] start -->
         <div class="me-auto pc-mob-drp">
             <ul class="list-unstyled">
                 <!-- ======= Menu collapse Icon ===== -->
@@ -14,19 +13,152 @@
                     <a href="#" class="pc-head-link ms-0" id="mobile-collapse">
                         <i class="material-icons-two-tone">menu</i>
                     </a>
-                </li> 
+                </li>
+                <li class="dropdown pc-h-item d-none d-md-flex">
+                    <a
+                        class="pc-head-link active pc-head-link-text dropdown-toggle arrow-none me-0"
+                        data-bs-toggle="dropdown"
+                        href="#"
+                        role="button"
+                        aria-haspopup="false"
+                        aria-expanded="false">
+                        Level
+                    </a>
+                    <div class="dropdown-menu pc-h-dropdown">
+                        <a href="#!" class="dropdown-item">
+                            <i class="material-icons-two-tone">account_circle</i>
+                            <span>My Account</span>
+                        </a>
+                        <a href="#!" class="dropdown-item">
+                            <i class="material-icons-two-tone">settings</i>
+                            <span>Settings</span>
+                        </a>
+                        <a href="#!" class="dropdown-item">
+                            <i class="material-icons-two-tone">support</i>
+                            <span>Support</span>
+                        </a>
+                        <a href="#!" class="dropdown-item">
+                            <i class="material-icons-two-tone">https</i>
+                            <span>Lock Screen</span>
+                        </a>
+                        <a href="#!" class="dropdown-item">
+                            <i class="material-icons-two-tone">chrome_reader_mode</i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </li>
             </ul>
         </div>
         <!-- [Mobile Media Block end] -->
         <div class="ms-auto">
             <ul class="list-unstyled">
-                @auth
+                <li class="dropdown pc-h-item">
+                    <a
+                        class="pc-head-link dropdown-toggle arrow-none me-0"
+                        data-bs-toggle="dropdown"
+                        href="#"
+                        role="button"
+                        aria-haspopup="false"
+                        aria-expanded="false">
+                        <i class="material-icons-two-tone">notifications_active</i>
+                        <span class="badge bg-danger pc-h-badge">3</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-notification dropdown-menu-end pc-h-dropdown">
+                        <div class="dropdown-header d-flex align-items-center justify-content-between">
+                            <h4 class="m-0">Notifications</h4>
+                            <ul class="list-inline ms-auto mb-0">
+                                <li class="list-inline-item">
+                                    <a href="#" class="avtar avtar-s btn-link-hover-primary">
+                                        <i class="ti ti-arrows-diagonal f-18"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#" class="avtar avtar-s btn-link-hover-danger">
+                                        <i class="ti ti-x f-18"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="dropdown-body text-wrap header-notification-scroll position-relative" style="max-height: calc(100vh - 235px)">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <p class="text-span">Today</p>
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0">
+                                            <div class="avtar avtar-s bg-light-danger">
+                                                <i class="ph-duotone ph-user f-18"></i>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <div class="d-flex">
+                                                <div class="flex-grow-1 me-3 position-relative">
+                                                    <h5 class="mb-0 text-truncate">Challenge invitation</h5>
+                                                </div>
+                                                <div class="flex-shrink-0">
+                                                    <span class="text-sm text-muted">12 hour ago</span>
+                                                </div>
+                                            </div>
+                                            <p class="position-relative text-muted mt-1 mb-2">
+                                                <br />
+                                                <span class="text-truncate">
+                                                    <strong>Jonny aber</strong>
+                                                    invites to join the challenge
+                                                </span>
+                                            </p>
+                                            <button class="btn btn-sm rounded-pill btn-outline-secondary me-2">Decline</button>
+                                            <button class="btn btn-sm rounded-pill btn-primary">Accept</button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0">
+                                            <div class="avtar avtar-s bg-light-info">
+                                                <i class="ph-duotone ph-notebook f-18"></i>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <div class="d-flex">
+                                                <div class="flex-grow-1 me-3 position-relative">
+                                                    <h5 class="mb-0 text-truncate">Forms</h5>
+                                                </div>
+                                                <div class="flex-shrink-0">
+                                                    <span class="text-sm text-muted">2 hour ago</span>
+                                                </div>
+                                            </div>
+                                            <p class="position-relative text-muted mt-1 mb-2">
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+                                                dummy text ever since the 1500s.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="dropdown-footer">
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <div class="d-grid"><button class="btn btn-primary">Archive all</button></div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="d-grid"><button class="btn btn-outline-secondary">Mark all as read</button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
                 <li class="dropdown pc-h-item header-user-profile">
-                    <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#"
-                        role="button" aria-haspopup="false" data-bs-auto-close="outside" aria-expanded="false">
-                        <img src="{{asset('favicon.png')}}" alt="user-image" width="auto" height="25" />
+                    <a
+                        class="pc-head-link dropdown-toggle arrow-none me-0"
+                        data-bs-toggle="dropdown"
+                        href="#"
+                        role="button"
+                        aria-haspopup="false"
+                        data-bs-auto-close="outside"
+                        aria-expanded="false">
+                        <img src="{{asset('favicon.png')}}" alt="user-image" width="auto" height="25"  />
                         <span class="ms-2">
-                            <span class="user-name">{{ Auth::user()->name }}</span>
+                            <span class="user-name">Joseph William</span>
                             <span class="user-desc">Administrator</span>
                         </span>
                     </a>
@@ -35,26 +167,29 @@
                             <h4 class="m-0">Profile</h4>
                         </div>
                         <div class="dropdown-body">
-                            <div class="profile-notification-scroll position-relative"
-                                style="max-height: calc(100vh - 125px)">
+                            <div class="profile-notification-scroll position-relative" style="max-height: calc(100vh - 125px)">
                                 <ul class="list-group list-group-flush w-100">
                                     <li class="list-group-item">
-                                        <form method="POST" action="{{ route('logout') }}">
-                                            @csrf
-                                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" class="dropdown-item">
-                                                <span class="d-flex align-items-center">
-                                                    <i class="ph-duotone ph-calendar-blank"></i>
-                                                    <span>Logout</span>
-                                                </span>
-                                            </a>
-                                        </form>
+                                        <a href="#" class="dropdown-item">
+                                            <span class="d-flex align-items-center">
+                                                <i class="ph-duotone ph-key"></i>
+                                                <span>Change password</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="#" class="dropdown-item">
+                                            <span class="d-flex align-items-center">
+                                                <i class="ph-duotone ph-calendar-blank"></i>
+                                                <span>Schedule meetings</span>
+                                            </span>
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </li>
-                @endauth
             </ul>
         </div>
     </div>

@@ -45,7 +45,7 @@
 
     @vite(['resources/js/app.js'])
 
-    @stack('scripts')
+    @yield('scripts')
     <script src="{{ asset('js/pcoded.js') }}"></script>
     <script>
         layout_change('light');
@@ -70,7 +70,7 @@
                 document.querySelector('.navbar').classList.remove('default');
             } else {
                 document.querySelector('.navbar').classList.add('default');
-                document.querySelector('navbar').classList.remove('top-nav-collapse');
+                document.querySelector('.navbar').classList.remove('top-nav-collapse');
             }
             ost = cOst;
         });
