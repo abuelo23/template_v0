@@ -13,11 +13,17 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('cedula')->unique(); // Nueva columna
+            $table->string('codigo')->nullable(); // Nueva columna
+            $table->string('nombre'); // Nueva columna
+            $table->string('apellido'); // Nueva columna
+            $table->string('usuario')->unique(); // Nueva columna
             $table->string('email')->unique();
+            $table->string('oficina')->nullable(); // Nueva columna
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->boolean('is_active')->default(true); // Campo para activar/desactivar
             $table->timestamps();
         });
 

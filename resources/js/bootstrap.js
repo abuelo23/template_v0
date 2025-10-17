@@ -26,3 +26,6 @@ window.SimpleBar = SimpleBar;
 import * as FontAwesomeCore from '@fortawesome/fontawesome-svg-core';
 window.FontAwesomeCore = FontAwesomeCore;
 
+// SweetAlert2
+import Swal from 'sweetalert2';
+window.Swal = Swal;

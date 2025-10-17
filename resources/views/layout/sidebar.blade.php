@@ -26,9 +26,9 @@
                 </li>
 
                 <li class="pc-item">
-                    <a href="#!" class="pc-link" target="_blank">
-                        <span class="pc-micon"><i class="material-icons-two-tone">person_add_alt_1</i></span>
-                        <span class="pc-mtext">Register</span>
+                    <a href="{{ route('users.index') }}" class="pc-link">
+                        <span class="pc-micon"><i class="material-icons-two-tone">group</i></span>
+                        <span class="pc-mtext">Usuarios</span>
                     </a>
                 </li>
                 <li class="pc-item pc-hasmenu">

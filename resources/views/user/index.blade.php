@@ -9,10 +9,60 @@
     </div>
     <div class="card-body">
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Launch demo modal
+        <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Crear Nuevo Usuario
         </button>
 
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Estado</th>
+                        <th>Cédula</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Usuario</th>
+                        <th>Email</th>
+                        <th>Oficina</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($users as $user)
+                        {{-- Cambia el color de la fila si el usuario está inactivo --}}
+                        <tr class="{{ !$user->is_active ? 'table-secondary text-muted' : '' }}">
+                            <td>{{ $user->id }}</td>
+                            <td>
+                                @if ($user->is_active)
+                                    <span class="badge bg-success">Activo</span>
+                                @else
+                                    <span class="badge bg-danger">Inactivo</span>
+                                @endif
+                            </td>
+                            <td>{{ $user->cedula }}</td>
+                            <td>{{ $user->nombre }}</td>
+                            <td>{{ $user->apellido }}</td>
+                            <td>{{ $user->usuario }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>{{ $user->oficina }}</td>
+                            <td class="d-flex gap-2">
+                                <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-warning">Editar</a>
+                                
+                                {{-- Formulario para activar/desactivar --}}
+                                <form action="{{ route('users.destroy', $user) }}" method="POST" class="form-activate-deactivate">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm {{ $user->is_active ? 'btn-danger' : 'btn-success' }}">
+                                        {{ $user->is_active ? 'Desactivar' : 'Activar' }}
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 <!-- Modal -->
@@ -73,4 +123,52 @@
         </div>
     </div>
 </div>
+
+{{-- Scripts para SweetAlert2 --}}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // 1. Reemplazar la confirmación de activar/desactivar
+    const forms = document.querySelectorAll('.form-activate-deactivate');
+    forms.forEach(form => {
+        form.addEventListener('submit', function (event) {
+            event.preventDefault(); // Detener el envío del formulario
+            
+            const button = this.querySelector('button[type="submit"]');
+            const actionText = button.textContent.trim().toLowerCase();
+
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: `¡Confirmas que quieres ${actionText} a este usuario!`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: `Sí, ¡${actionText}!`,
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this.submit(); // Si se confirma, enviar el formulario
+                }
+            });
+        });
+    });
+
+    // 2. Mostrar alertas de éxito desde la sesión de Laravel
+    @if (session('status') === 'user-created')
+        Swal.fire({
+            title: '¡Creado!',
+            text: 'El usuario ha sido creado exitosamente.',
+            icon: 'success'
+        });
+    @endif
+
+    @if (session('message'))
+        Swal.fire({
+            title: '¡Hecho!',
+            text: '{{ session('message') }}',
+            icon: 'success'
+        });
+    @endif
+});
+</script>
 @endsection

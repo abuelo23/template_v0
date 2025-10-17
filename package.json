@@ -19,6 +19,7 @@
         "clipboard": "^2.0.11",
         "feather-icons": "^4.29.2",
         "jquery": "^3.7.1",
-        "simplebar": "^6.2.7"
+        "simplebar": "^6.2.7",
+        "sweetalert2": "^11.12.3"
     }
 }
